@@ -60,7 +60,9 @@ docs/
 
 ## APK 다운로드
 
-**[Releases › v1.0.0 › app-debug.apk](../../releases/latest)** 에서 받을 수 있습니다. (디버그 서명 APK)
+**[Releases › v1.0.0 › app-debug.apk](https://github.com/gojuhee0810-crypto/MyDriveMoments/releases/tag/v1.0.0)** 에서 받을 수 있습니다. (디버그 서명 APK, 약 35MB)
+
+직접 다운로드: https://github.com/gojuhee0810-crypto/MyDriveMoments/releases/download/v1.0.0/app-debug.apk
 
 ## 테스트 환경
 
