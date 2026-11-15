@@ -58,16 +58,45 @@ docs/
 
 두 SDK 모두 Pleos Playground에서 별도 신청 없이 사용할 수 있으며, Maven 저장소 `https://nexus-playground.pleos.ai/repository/maven-releases/`에서 받습니다.
 
-## 빌드와 실행
+## APK 다운로드
 
-**준비물:** Android Studio, Pleos Connect Emulator(API 34) — 설치 방법은 [Pleos Connect 개발자 가이드](https://document.pleos.ai/docs/pleos-only/getting-started)를 참고하세요.
+**[Releases › v1.0.0 › app-debug.apk](../../releases/latest)** 에서 받을 수 있습니다. (디버그 서명 APK)
+
+## 테스트 환경
+
+| 항목 | 내용 |
+|---|---|
+| 에뮬레이터 | Pleos Connect Emulator v2.1.0 (Android 14, API 34, arm64), 2560×1440 |
+| 차량 서비스 | Pleos Vehicle Service, Pleos Navigation (에뮬레이터 기본 탑재) |
+| 개발 도구 | Android Studio, Android Gradle Plugin 9.5.1, Kotlin 2.2.10, Jetpack Compose |
+| 앱 요구사항 | minSdk 28 · targetSdk 37 · `android.hardware.type.automotive` |
+| 테스트한 Mac | Apple Silicon (arm64), macOS |
+
+**필요한 설정**
+
+- 일반 Android 휴대폰·에뮬레이터에는 설치되지 않습니다(차량 전용 앱). **Pleos Connect 전용 에뮬레이터**가 필요합니다.
+- Pleos 에뮬레이터 설치: Android Studio → Settings → Languages & Frameworks → Android SDK → SDK Update Sites에 `https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp-arm64-sys-img.xml`(Apple Silicon) 추가 → SDK Platforms에서 *Pleos Connect v2.1.0 APIs arm64 System Image* 설치 → Device Manager에서 Automotive › Pleos Connect 기기 생성(RAM 4GB, Cold boot). 자세한 내용은 [Pleos Connect Emulator 설치 및 실행](https://document.pleos.ai/docs/pleos-only/getting-started) 참고.
+- 별도 API 키나 로그인은 필요 없습니다. 사용하는 Vehicle·NaviHelper SDK는 신청 없이 사용할 수 있습니다.
+
+## 실행 방법
+
+**APK로 실행 (권장)**
+
+1. Pleos Connect 에뮬레이터를 실행합니다.
+2. Releases에서 받은 APK를 에뮬레이터 창에 끌어다 놓거나, 터미널에서 설치합니다.
+   ```bash
+   adb install app-debug.apk
+   ```
+3. 화면 하단 독 또는 앱 목록에서 **My Drive Moments**를 실행합니다.
+
+**소스에서 빌드**
 
 ```bash
 ./gradlew assembleDebug    # APK: app/build/outputs/apk/debug/app-debug.apk
-./gradlew installDebug     # 실행 중인 Pleos 에뮬레이터에 설치
+./gradlew installDebug     # 실행 중인 Pleos 에뮬레이터에 바로 설치
 ```
 
-미리 빌드한 APK는 이 저장소의 **Releases**에서 받을 수 있습니다.
+Android Studio에서 이 폴더를 열고 실행 기기로 Pleos Connect 에뮬레이터를 선택한 뒤 ▶ Run을 눌러도 됩니다.
 
 ## 시연 방법
 
